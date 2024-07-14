@@ -1,0 +1,168 @@
+{
+	"name": "vscode-pydev",
+	"displayName": "Python (PyDev)",
+	"description": "Python with the PyDev Language Server (Linting, Intellisense, Code Formatting, Quick Fixes and more).",
+	"version": "0.3.0",
+	"publisher": "fabioz",
+	"icon": "icon.png",
+	"license": "http://www.pydev.org/vscode/license.html",
+	"homepage": "http://www.pydev.org/vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fabioz/vscode-pydev-info"
+	},
+	"engines": {
+		"vscode": "^1.19.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Linters",
+		"Formatters"
+	],
+	"keywords": [
+		"multi-root ready",
+		"python"
+	],
+	"activationEvents": [
+		"onLanguage:python",
+		"onCommand:pydev.open.serverLog",
+		"onCommand:pydev.open.output",
+		"onCommand:pydev.show.config",
+		"onCommand:pydev.enter.license",
+		"onCommand:pydev.validate.license",
+		"onCommand:pydev.editor.nextMethodOrClass",
+		"onCommand:pydev.editor.prevMethodOrClass"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "pydev.open.serverLog",
+				"title": "Open Server Log",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.open.output",
+				"title": "Open output",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.show.config",
+				"title": "Show PyDev Configuration Information",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.enter.license",
+				"title": "Enter License",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.validate.license",
+				"title": "Validate License",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.editor.nextMethodOrClass",
+				"title": "Next Method or Class",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.editor.prevMethodOrClass",
+				"title": "Previous Method or Class",
+				"category": "PyDev"
+			}
+		],
+		"keybindings": [
+			{
+				"key": "ctrl+shift+down",
+				"command": "pydev.editor.nextMethodOrClass",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+shift+up",
+				"command": "pydev.editor.prevMethodOrClass",
+				"when": "editorTextFocus"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Java configuration for PyDev",
+			"properties": {
+				"python.pydev.java.home": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies the folder path to the JDK (8 or more recent) used to launch the PyDev Language Server (which has /bin/java inside it)."
+				},
+				"python.pydev.ls.vmargs": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
+					"description": "Specifies extra VM arguments used to launch the PyDev Language Server. Eg. use `-noverify -Xmx1G  -XX:+UseG1GC -XX:+UseStringDeduplication` to bypass class verification, increase the heap size to 1GB and enable String deduplication with the G1 Garbage collector"
+				},
+				"python.pydev.pythonExecutable": {
+					"type": "string",
+					"default": "python",
+					"description": "Python executable to be used."
+				},
+				"python.pydev.pythonPath": {
+					"type": "array",
+					"default": [],
+					"description": "The folders added to the PYTHONPATH containing the sources to be edited by the user. If not given the folders in the default PYTHONPATH which are under root folders are used and if none is found the root folders are used instead."
+				},
+				"python.pydev.forcedBuiltins": {
+					"type": "array",
+					"default": [],
+					"description": "The names of the libraries to be analyzed by a shell (in addition to the ones that are already builtin). See: www.pydev.org/manual_101_interpreter.html#PyDevInterpreterConfiguration-ForcedBuiltins."
+				},
+				"python.pydev.preferredImportLocation": {
+					"type": "string",
+					"default": "global",
+					"description": "Preferred import location (one of: global, topOfMethod, lineBeforeUsage). Used on auto-imports and quick-fix to determine the location to add an import.",
+					"enum": [
+						"global",
+						"topOfMethod",
+						"lineBeforeUsage"
+					]
+				},
+				"python.pydev.format.manageBlankLines": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether blank-lines should be managed by the code formatter."
+				}
+			}
+		},
+		"debuggers": []
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"@types/vscode": "^1.19.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^3.4.5",
+		"find-java-home": "0.1.4",
+		"tmp": "^0.0.31",
+		"path-exists": "^3.0.0",
+		"expand-home-dir": "^0.0.3",
+		"glob": "^7.1.1"
+	},
+	"__metadata": {
+		"id": "7bb5c890-47bf-43a9-9e6f-72f146924734",
+		"publisherId": "ed312bf9-1a46-492d-a796-9b89fb8405cf",
+		"publisherDisplayName": "Fabio Zadrozny",
+		"installedTimestamp": 1720000553275
+	}
+}

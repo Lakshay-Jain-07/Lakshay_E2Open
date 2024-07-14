@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ast Plug-in
+Bundle-SymbolicName: org.python.pydev.ast; singleton:=true
+Bundle-Version: 9.3.0.202203052023
+Bundle-ClassPath: ast.jar
+Bundle-Activator: org.python.pydev.ast.AstPlugin
+Eclipse-BundleShape: dir
+Require-Bundle: org.eclipse.core.resources,org.eclipse.core.runtime,org.
+ python.pydev.core;bundle-version="[9.3.0,9.3.1)",org.eclipse.text,org.p
+ ython.pydev.parser;bundle-version="[9.3.0,9.3.1)",org.eclipse.core.vari
+ ables,org.eclipse.debug.core
+Bundle-ActivationPolicy: lazy
+Export-Package: org.python.pydev.ast,org.python.pydev.ast.analysis,org.p
+ ython.pydev.ast.analysis.messages,org.python.pydev.ast.builder,org.pyth
+ on.pydev.ast.codecompletion,org.python.pydev.ast.codecompletion.revisit
+ ed,org.python.pydev.ast.codecompletion.revisited.modules,org.python.pyd
+ ev.ast.codecompletion.revisited.visitors,org.python.pydev.ast.codecompl
+ etion.shell,org.python.pydev.ast.cython,org.python.pydev.ast.formatter,
+ org.python.pydev.ast.interpreter_managers,org.python.pydev.ast.item_poi
+ nter,org.python.pydev.ast.listing_utils,org.python.pydev.ast.location,o
+ rg.python.pydev.ast.refactoring,org.python.pydev.ast.runners,org.python
+ .pydev.ast.simpleassist,org.python.pydev.core.pep8,org.python.pydev.plu
+ gin,org.python.pydev.plugin.nature
+Bundle-Vendor: Brainwy Software Ltda
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.python.pydev.ast
+
+

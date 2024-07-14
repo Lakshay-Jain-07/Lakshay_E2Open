@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Analysis Plug-in
+Bundle-SymbolicName: com.python.pydev.analysis; singleton:=true
+Bundle-Version: 9.3.0.202203052023
+Bundle-Activator: com.python.pydev.analysis.AnalysisPlugin
+Bundle-Vendor: Brainwy Software Ltda
+Eclipse-BundleShape: dir
+Require-Bundle: org.eclipse.core.runtime,org.junit;bundle-version="4.0";
+ resolution:=optional,org.eclipse.text,org.python.pydev.ast;bundle-versi
+ on="[9.3.0,9.3.1)",org.python.pydev.core;bundle-version="[9.3.0,9.3.1)"
+ ,org.python.pydev.parser;bundle-version="[9.3.0,9.3.1)",org.eclipse.cor
+ e.resources,org.eclipse.ltk.core.refactoring,org.eclipse.core.filebuffe
+ rs,org.python.pydev.shared_core
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: analysis.jar
+Export-Package: com.python.pydev.analysis,com.python.pydev.analysis.addi
+ tionalinfo,com.python.pydev.analysis.additionalinfo.builders,com.python
+ .pydev.analysis.additionalinfo.dependencies,com.python.pydev.analysis.e
+ xternal,com.python.pydev.analysis.flake8,com.python.pydev.analysis.mypy
+ ,com.python.pydev.analysis.pep8,com.python.pydev.analysis.pylint,com.py
+ thon.pydev.analysis.refactoring.changes,com.python.pydev.analysis.refac
+ toring.quick_fixes,com.python.pydev.analysis.refactoring.refactorer,com
+ .python.pydev.analysis.refactoring.wizards,com.python.pydev.analysis.re
+ factoring.wizards.rename,com.python.pydev.analysis.refactoring.wizards.
+ rename.visitors,com.python.pydev.analysis.scopeanalysis,com.python.pyde
+ v.analysis.system_info_builder,com.python.pydev.analysis.tabnanny,com.p
+ ython.pydev.analysis.visitors,com.python.pydev.codecompletion.ctxinsens
+ itive,com.python.pydev.codecompletion.participant,com.python.pydev.code
+ completion.simpleassist
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: com.python.pydev.analysis
+
+

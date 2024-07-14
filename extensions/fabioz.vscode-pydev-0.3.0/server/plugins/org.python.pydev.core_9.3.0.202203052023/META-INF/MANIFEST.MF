@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core Plug-in
+Bundle-SymbolicName: org.python.pydev.core;singleton:=true
+Bundle-Version: 9.3.0.202203052023
+Bundle-ClassPath: core.jar
+Bundle-Activator: org.python.pydev.core.CorePlugin
+Bundle-Vendor: Brainwy Software Ltda
+Eclipse-BundleShape: dir
+Require-Bundle: org.junit;bundle-version="4.0.0";resolution:=optional,or
+ g.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.core.file
+ buffers,org.eclipse.core.variables,org.eclipse.text,org.python.pydev.sh
+ ared_core;bundle-version="[9.3.0,9.3.1)";visibility:=reexport,org.eclip
+ se.ltk.core.refactoring,org.eclipse.core.filesystem
+Bundle-ActivationPolicy: lazy
+Export-Package: org.python.copiedfromeclipsesrc,org.python.pydev.core,or
+ g.python.pydev.core.autoedit,org.python.pydev.core.cache,org.python.pyd
+ ev.core.concurrency,org.python.pydev.core.cython,org.python.pydev.core.
+ docutils,org.python.pydev.core.editor,org.python.pydev.core.formatter,o
+ rg.python.pydev.core.interactive_console,org.python.pydev.core.interpre
+ ters,org.python.pydev.core.log,org.python.pydev.core.logging,org.python
+ .pydev.core.nature,org.python.pydev.core.parser,org.python.pydev.core.p
+ artition,org.python.pydev.core.performanceeval,org.python.pydev.core.pr
+ eferences,org.python.pydev.core.proposals,org.python.pydev.core.structu
+ re,org.python.pydev.json.eclipsesource,org.python.pydev.refactoring.cor
+ e.base,org.python.pydev.shared_ui.search.replace
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.python.pydev.core
+
+

@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Parser Plug-in
+Bundle-SymbolicName: org.python.pydev.parser; singleton:=true
+Bundle-Version: 9.3.0.202203052023
+Bundle-ClassPath: parser.jar
+Bundle-Activator: org.python.pydev.parser.ParserPlugin
+Eclipse-BundleShape: dir
+Require-Bundle: org.junit;bundle-version="4.0.0";resolution:=optional,or
+ g.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.text,org.
+ python.pydev.core;bundle-version="[9.3.0,9.3.1)"
+Bundle-ActivationPolicy: lazy
+Export-Package: org.python.pydev.parser,org.python.pydev.parser.fastpars
+ er,org.python.pydev.parser.fastparser.grammar_fstrings_common,org.pytho
+ n.pydev.parser.grammar25,org.python.pydev.parser.grammar26,org.python.p
+ ydev.parser.grammar27,org.python.pydev.parser.grammar30,org.python.pyde
+ v.parser.grammar36,org.python.pydev.parser.grammar_fstrings,org.python.
+ pydev.parser.grammarcommon,org.python.pydev.parser.jython,org.python.py
+ dev.parser.jython.ast,org.python.pydev.parser.jython.ast.factory,org.py
+ thon.pydev.parser.preferences,org.python.pydev.parser.prettyprinter,org
+ .python.pydev.parser.prettyprinterv2,org.python.pydev.parser.visitors,o
+ rg.python.pydev.parser.visitors.comparator,org.python.pydev.parser.visi
+ tors.scope
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.python.pydev.parser
+
+
