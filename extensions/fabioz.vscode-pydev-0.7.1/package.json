@@ -1,0 +1,517 @@
+{
+	"name": "vscode-pydev",
+	"displayName": "Python (PyDev)",
+	"description": "Python with the PyDev Language Server (Linting, Intellisense, Code Formatting, Quick Fixes and more).",
+	"version": "0.7.1",
+	"publisher": "fabioz",
+	"icon": "icon.png",
+	"license": "http://www.pydev.org/vscode/license.html",
+	"homepage": "http://www.pydev.org/vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fabioz/vscode-pydev-info"
+	},
+	"engines": {
+		"vscode": "^1.65.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Linters",
+		"Formatters",
+		"Debuggers"
+	],
+	"keywords": [
+		"multi-root ready",
+		"python",
+		"debug",
+		"debugging",
+		"debugger"
+	],
+	"activationEvents": [
+		"onLanguage:python",
+		"onCommand:pydev.open.serverLog",
+		"onCommand:pydev.open.output",
+		"onCommand:pydev.config.clickPyDevStatusitem",
+		"onCommand:pydev.show.config",
+		"onCommand:pydev.enter.license",
+		"onCommand:pydev.enter.license.internal",
+		"onCommand:pydev.validate.license",
+		"onCommand:pydev.validate.license.internal",
+		"onCommand:pydev.verify.license",
+		"onCommand:pydev.verify.license.internal",
+		"onCommand:pydev.editor.nextMethodOrClass",
+		"onCommand:pydev.editor.prevMethodOrClass",
+		"onCommand:pydev.config.interpreter",
+		"onCommand:pydev.listTests",
+		"onCommand:pydev.runTest",
+		"onCommand:pydev.debugTest",
+		"onCommand:pydev.runSuite",
+		"onCommand:pydev.debugSuite",
+		"onCommand:pydev.getRunfilesPy",
+		"onCommand:pydev.unittest.pinTest",
+		"onCommand:pydev.unittest.unpinTest"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "pydev.open.serverLog",
+				"title": "Open Server Log",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.open.output",
+				"title": "Open output",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.config.clickPyDevStatusitem",
+				"title": "Config: Common",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.show.config",
+				"title": "Show PyDev Configuration Information",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.enter.license",
+				"title": "Enter License",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.enter.license.internal",
+				"title": "Enter License (internal)",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.validate.license",
+				"title": "Validate License",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.validate.license.internal",
+				"title": "Validate License (internal)",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.verify.license",
+				"title": "Verify License",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.verify.license.internal",
+				"title": "Verify License (internal)",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.editor.nextMethodOrClass",
+				"title": "Next Method or Class",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.editor.prevMethodOrClass",
+				"title": "Previous Method or Class",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.config.interpreter",
+				"title": "Config: Select Python Interpreter",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.listTests",
+				"title": "Lists tests",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.runTest",
+				"title": "Run a test",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.debugTest",
+				"title": "Debug a test",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.runSuite",
+				"title": "Runs all tests (in the given scope)",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.debugSuite",
+				"title": "Debugs all tests (in the given scope)",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.getRunfilesPy",
+				"title": "Gets the runfiles.py",
+				"category": "PyDev"
+			},
+			{
+				"command": "pydev.unittest.pinTest",
+				"title": "Click to mark the currently selected run as the base run (so that clicking refresh will show it again)",
+				"category": "PyDev",
+				"icon": "$(pinned)"
+			},
+			{
+				"command": "pydev.unittest.unpinTest",
+				"title": "Unpin test",
+				"category": "PyDev",
+				"icon": "$(pin)"
+			}
+		],
+		"keybindings": [
+			{
+				"key": "ctrl+shift+down",
+				"command": "pydev.editor.nextMethodOrClass",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+shift+up",
+				"command": "pydev.editor.prevMethodOrClass",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+shift+alt+i",
+				"command": "pydev.config.interpreter"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Java configuration for PyDev",
+			"properties": {
+				"python.pydev.java.home": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies the folder path to the JDK (8 or more recent) used to launch the PyDev Language Server (which has /bin/java inside it)."
+				},
+				"python.pydev.ls.vmargs": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
+					"description": "Specifies extra VM arguments used to launch the PyDev Language Server. Eg. use `-Xmx1G  -XX:+UseG1GC -XX:+UseStringDeduplication` to bypass class verification, increase the heap size to 1GB and enable String deduplication with the G1 Garbage collector"
+				},
+				"python.pydev.pythonExecutable": {
+					"type": "string",
+					"default": "python",
+					"description": "Python executable to be used."
+				},
+				"python.pydev.askInstallDebugger": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to ask to install `Python Debugger (PyDev)` extension."
+				},
+				"python.pydev.pythonPath": {
+					"type": "array",
+					"default": [],
+					"description": "The folders added to the PYTHONPATH containing the sources to be edited by the user. If not given the folders in the default PYTHONPATH which are under root folders are used and if none is found the root folders are used instead."
+				},
+				"python.pydev.forcedBuiltins": {
+					"type": "array",
+					"default": [],
+					"description": "The names of the libraries to be analyzed by a shell (in addition to the ones that are already builtin). See: www.pydev.org/manual_101_interpreter.html#PyDevInterpreterConfiguration-ForcedBuiltins."
+				},
+				"python.pydev.preferredImportLocation": {
+					"type": "string",
+					"default": "global",
+					"description": "Preferred import location (one of: global, topOfMethod, lineBeforeUsage). Used on auto-imports and quick-fix to determine the location to add an import.",
+					"enum": [
+						"global",
+						"topOfMethod",
+						"lineBeforeUsage"
+					]
+				},
+				"python.pydev.format.manageBlankLines": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether blank-lines should be managed by the code formatter."
+				},
+				"python.pydev.lint.mypy.use": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether linting should be done using Mypy."
+				},
+				"python.pydev.lint.mypy.args": {
+					"type": "string",
+					"default": "--follow-imports=silent --show-column-numbers",
+					"description": "The arguments passed to mypy"
+				},
+				"python.pydev.lint.mypy.showOutput": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether the raw output of Mypy should be shown in OUTPUT > PyDev (Mypy)."
+				},
+				"python.pydev.lint.pylint.use": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether linting should be done using PyLint."
+				},
+				"python.pydev.lint.pylint.args": {
+					"type": "string",
+					"default": "",
+					"description": "The arguments passed to PyLint"
+				},
+				"python.pydev.lint.pylint.showOutput": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether the raw output of PyLint should be shown in OUTPUT > PyDev (PyLint)."
+				},
+				"python.pydev.lint.pylint.E.severity": {
+					"type": "string",
+					"default": "error",
+					"description": "The severity for E (error) messages",
+					"enum": [
+						"error",
+						"warning",
+						"info",
+						"ignore"
+					]
+				},
+				"python.pydev.lint.pylint.W.severity": {
+					"type": "string",
+					"default": "warning",
+					"description": "The severity for W (warning) messages",
+					"enum": [
+						"error",
+						"warning",
+						"info",
+						"ignore"
+					]
+				},
+				"python.pydev.lint.pylint.F.severity": {
+					"type": "string",
+					"default": "error",
+					"description": "The severity for F (fatal) messages",
+					"enum": [
+						"error",
+						"warning",
+						"info",
+						"ignore"
+					]
+				},
+				"python.pydev.lint.pylint.C.severity": {
+					"type": "string",
+					"default": "ignore",
+					"description": "The severity for C (coding standard) messages",
+					"enum": [
+						"error",
+						"warning",
+						"info",
+						"ignore"
+					]
+				},
+				"python.pydev.lint.pylint.R.severity": {
+					"type": "string",
+					"default": "ignore",
+					"description": "The severity for R (refactor) messages",
+					"enum": [
+						"error",
+						"warning",
+						"info",
+						"ignore"
+					]
+				},
+				"python.pydev.lint.pylint.I.severity": {
+					"type": "string",
+					"default": "info",
+					"description": "The severity for I (information) messages",
+					"enum": [
+						"error",
+						"warning",
+						"info",
+						"ignore"
+					]
+				},
+				"python.pydev.lint.flake8.use": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether linting should be done using Flake8."
+				},
+				"python.pydev.lint.flake8.args": {
+					"type": "string",
+					"default": "",
+					"description": "The arguments passed to Flake8"
+				},
+				"python.pydev.lint.flake8.showOutput": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether the raw output of Flake8 should be shown in OUTPUT > PyDev (Flake8)."
+				},
+				"python.pydev.lint.flake8.severityMap": {
+					"type": "string",
+					"default": "{\"F\": \"error\", \"E\": \"error\", \"E[400,500]\": \"error\", \"E600\": \"error\", \"W\": \"warning\", \"N8\": \"warning\", \"C9\": \"info\"}",
+					"description": "The severity map that flake8 should use."
+				},
+				"python.pydev.lint.ruff.use": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether linting should be done using Ruff."
+				},
+				"python.pydev.lint.ruff.args": {
+					"type": "string",
+					"default": "",
+					"description": "The arguments passed to Ruff"
+				},
+				"python.pydev.lint.ruff.showOutput": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether the raw output of Ruff should be shown in OUTPUT > PyDev (Ruff)."
+				},
+				"python.pydev.formatter": {
+					"type": "string",
+					"default": "pydevf",
+					"description": "Code formatter to use (one of: pydevf, autopep8, black, ruff).",
+					"enum": [
+						"pydevf",
+						"autopep8",
+						"black",
+						"ruff"
+					]
+				},
+				"python.pydev.sortImportsOnFormat": {
+					"type": "string",
+					"default": "no",
+					"description": "The sort importer engine to use (one of: no, pydev:pep8, pydev:regular, isort).",
+					"enum": [
+						"no",
+						"pydev:pep8",
+						"pydev:regular",
+						"isort"
+					]
+				},
+				"python.pydev.tests.runner": {
+					"type": "string",
+					"default": "pytest",
+					"description": "The test runner to use (one of: pytest, pydev-unittest, node).",
+					"enum": [
+						"pytest",
+						"unittest",
+						"node"
+					]
+				},
+				"python.pydev.tests.runner.pytest.args": {
+					"type": "array",
+					"default": [],
+					"description": "The arguments to use for pytest. Common options: -n auto, --tb=long|native|short|line, --capture=no|sys|fd, --showlocals, --runxfail, --assert=plain|reinterp|rewrite, --durations=<number of slow tests to show>"
+				},
+				"python.pydev.tests.runner.pydev-unittest.args": {
+					"type": "array",
+					"default": [],
+					"description": "The arguments to use for the pydev unittest runner. Common options: --verbosity=<number>, --jobs=<number>, --split_jobs=tests|module, --include_files=<comma-separated patterns>, --exclude_files=<comma-separated patterns>, --include_tests=<comma-separated patterns>, --exclude_tests=<comma-separated patterns>, --django=true|false"
+				},
+				"python.pydev.tests.runner.nose.args": {
+					"type": "array",
+					"default": [],
+					"description": "The arguments to use for the nose runner."
+				}
+			}
+		},
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "pydev.enter.license.internal",
+					"when": "false"
+				},
+				{
+					"command": "pydev.validate.license.internal",
+					"when": "false"
+				},
+				{
+					"command": "pydev.verify.license",
+					"when": "false"
+				},
+				{
+					"command": "pydev.verify.license.internal",
+					"when": "false"
+				},
+				{
+					"command": "pydev.editor.nextMethodOrClass",
+					"when": "editorTextFocus"
+				},
+				{
+					"command": "pydev.editor.prevMethodOrClass",
+					"when": "editorTextFocus"
+				},
+				{
+					"command": "pydev.listTests",
+					"when": "false"
+				},
+				{
+					"command": "pydev.getRunfilesPy",
+					"when": "false"
+				},
+				{
+					"command": "pydev.unittest.pinTest",
+					"when": "false"
+				},
+				{
+					"command": "pydev.unittest.unpinTest",
+					"when": "false"
+				}
+			]
+		},
+		"views": {},
+		"viewsContainers": {}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run -S esbuild-base -- --minify",
+		"esbuild-base": "rimraf out && esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+		"build": "npm run -S esbuild-base -- --sourcemap",
+		"watch": "npm run -S esbuild-base -- --sourcemap --watch",
+		"fmt": "prettier --write \"src/**/*.ts\"&& npm run test -- --fix",
+		"test": "eslint src --ext ts && tsc --noEmit"
+	},
+	"prettier": {
+		"tabWidth": 4,
+		"printWidth": 120,
+		"quoteProps": "preserve"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.32",
+		"@types/node": "^15.0.00",
+		"@types/vscode": "1.65.0",
+		"typescript": "^4.9.4",
+		"@typescript-eslint/eslint-plugin": "^5.47.1",
+		"@typescript-eslint/parser": "^5.47.1",
+		"esbuild": "^0.16.11",
+		"eslint": "^8.30.0",
+		"eslint-plugin-header": "^3.1.1",
+		"prettier": "^2.8.1",
+		"rimraf": "^3.0.2"
+	},
+	"dependencies": {
+		"sax": "1.2.x",
+		"xmlbuilder": "8.2.x",
+		"vscode-languageclient": "^7.0.0",
+		"vscode-nls": "^4.1.2",
+		"find-java-home": "2.0.0",
+		"tmp": "^0.0.31",
+		"path-exists": "^3.0.0",
+		"expand-home-dir": "^0.0.3",
+		"http-proxy-agent": "^2.1.0",
+		"https-proxy-agent": "^2.2.4",
+		"tar": "6.1.14",
+		"unzipper": "0.10.11",
+		"glob": "^7.1.1"
+	},
+	"__metadata": {
+		"id": "7bb5c890-47bf-43a9-9e6f-72f146924734",
+		"publisherId": "ed312bf9-1a46-492d-a796-9b89fb8405cf",
+		"publisherDisplayName": "Fabio Zadrozny",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1721391162018,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}

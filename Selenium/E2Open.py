@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 
 # chrome browser
 driver = webdriver.Chrome()
-driver2 = webdriver.Chrome()
+#driver2 = webdriver.Chrome()
 driver.maximize_window()
 time.sleep(2)
 #double browser instance
